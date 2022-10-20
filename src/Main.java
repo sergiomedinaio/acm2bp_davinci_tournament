@@ -13,7 +13,11 @@ public class Main {
             finDeCursada
         );
 
+        Team profesPoo = new Team("Profes POO");
+        Team estudiantesPoo = new Team("Estudiantes POO");
+
         Match primerParcial = new Match("Aula 116", fechaParcial);
+
 
     }
 }
