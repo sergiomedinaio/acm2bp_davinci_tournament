@@ -14,8 +14,12 @@ public class Main {
         );
 
         Player profeSergio = new Player("Sergio Medina", "Goalkeeper");
+        Player profeSuplente = new Player("Suplente", "Defender");
 
         Team profesPoo = new Team("Profes POO");
+        profesPoo.addPlayer(profeSergio);
+        profesPoo.addPlayer(profeSuplente);
+
         Team estudiantesPoo = new Team("Estudiantes POO");
 
         Match primerParcial = new Match(
