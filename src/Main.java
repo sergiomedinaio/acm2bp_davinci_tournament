@@ -13,6 +13,8 @@ public class Main {
             finDeCursada
         );
 
+        Player profeSergio = new Player("Sergio Medina", "Goalkeeper");
+
         Team profesPoo = new Team("Profes POO");
         Team estudiantesPoo = new Team("Estudiantes POO");
 
