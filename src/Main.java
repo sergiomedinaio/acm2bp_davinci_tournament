@@ -35,5 +35,7 @@ public class Main {
             estudiantesPoo
         );
 
+        System.out.println(primerParcial.generateMarker());
+
     }
 }
