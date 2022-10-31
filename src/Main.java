@@ -36,6 +36,8 @@ public class Main {
         );
 
         System.out.println(primerParcial.generateMarker());
+        primerParcial.makeGoal(profesPoo, profesPoo.getPlayers().get(0));
+        System.out.println(primerParcial.generateMarker());
 
     }
 }
