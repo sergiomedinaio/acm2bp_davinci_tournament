@@ -1,11 +1,22 @@
 @startuml
+class MatchResult {
+- int localGoalCounter
+- int visitantGoalCounter
+~ <<Create>> MatchResult()
++ int getLocalGoalCounter()
++ void setLocalGoalCounter(int)
++ int getVisitantGoalCounter()
++ void setVisitantGoalCounter(int)
++ void incrementLocalCounter()
++ void incrementVisitantCounter()
++ String generateMarker()
+}
 class Match {
 - String location
 - Date date
 - Team localTeam
 - Team visitantTeam
-- int localGoalCounter
-- int visitantGoalCounter
+- MatchResult result
 ~ <<Create>> Match()
 ~ <<Create>> Match(String,Date)
 ~ <<Create>> Match(String,Date,Team,Team)
@@ -18,11 +29,6 @@ class Match {
 + void setLocalTeam(Team)
 + void setVisitantTeam(Team)
 + Team getLocalTeam()
-+ void incrementLocalCounter()
-+ int getLocalGoalCounter()
-+ void setLocalGoalCounter(int)
-+ int getVisitantGoalCounter()
-+ void setVisitantGoalCounter(int)
 + Team getVisitantTeam()
 }
 class Team {
