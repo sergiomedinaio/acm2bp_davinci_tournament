@@ -5,24 +5,20 @@ public class Match {
     private Date date;
     private Team localTeam;
     private Team visitantTeam;
-    private int localGoalCounter;
-    private int visitantGoalCounter;
+    private MatchResult result;
 
     Match() {
-        this.setLocalGoalCounter(0);
-        this.setVisitantGoalCounter(0);
+        this.result = new MatchResult();
     }
 
     Match(String location, Date date) {
-        this.setLocalGoalCounter(0);
-        this.setVisitantGoalCounter(0);
+        this.result = new MatchResult();
         this.setDate(date);
         this.setLocation(location);
     }
 
     Match(String location, Date date, Team local, Team visitant) {
-        this.setLocalGoalCounter(0);
-        this.setVisitantGoalCounter(0);
+        this.result = new MatchResult();
         this.setDate(date);
         this.setLocation(location);
         this.setLocalTeam(local);
@@ -32,20 +28,19 @@ public class Match {
 
     public void makeGoal(Team team, Player player) {
         if(team.getName() == this.getLocalTeam().getName()) {
-            this.localGoalCounter++; //setLocalGoalCounter(getLocalGoalCounter()+1);
+            this.result.incrementLocalCounter();
         }
         if(team.getName() == this.getVisitantTeam().getName()) {
-            this.visitantGoalCounter++;
+            this.result.incrementVisitantCounter();
         }
         player.incrementGoalCounter();
     }
 
     public String generateMarker() {
         //return this.getLocalGoalCounter() + "-" + this.getVisitantGoalCounter();
-        return String.format("%s (%d) - (%d) %s",
+        return String.format("%s %s %s",
             this.getLocalTeam().getName(),
-            this.getLocalGoalCounter(),
-            this.getVisitantGoalCounter(),
+            this.result.generateMarker(),
             this.getVisitantTeam().getName()
         );
     }
@@ -74,26 +69,6 @@ public class Match {
     public Team getLocalTeam(){
         return this.localTeam;
     }
-    public void incrementLocalCounter(){
-        this.localGoalCounter++;
-    }
-
-    public int getLocalGoalCounter() {
-        return localGoalCounter;
-    }
-
-    public void setLocalGoalCounter(int localGoalCounter) {
-        this.localGoalCounter = localGoalCounter;
-    }
-
-    public int getVisitantGoalCounter() {
-        return visitantGoalCounter;
-    }
-
-    public void setVisitantGoalCounter(int visitantGoalCounter) {
-        this.visitantGoalCounter = visitantGoalCounter;
-    }
-
     public Team getVisitantTeam() {
         return visitantTeam;
     }
